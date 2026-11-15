@@ -16,6 +16,9 @@
 | 필요한 설정 | AVD는 RAM 4GB, Cold boot. 기어 P에서 실행. Virtual Console은 `adb forward tcp:8088 tcp:8088` 뒤 `http://127.0.0.1:8088/` |
 | APK 위치 | `apk/성장준_자동차 과학실_release.apk` |
 | 저장소 | <https://github.com/cariekim0619/app-dev-challenge-auto-hmg-car-science-lab> |
+| 앱 화면 시안 | [docs/app-screen-design.pdf](docs/app-screen-design.pdf) |
+| 시연 영상 | <https://youtu.be/GM7FMSmbFyo> |
+| 숏폼 | <https://www.youtube.com/channel/UC4eDhIzNlP7u4B9OXAfizmw> |
 
 ## 지금 상태 (2026-11-15 밤)
 
