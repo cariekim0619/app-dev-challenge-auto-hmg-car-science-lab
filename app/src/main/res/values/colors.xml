@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- 화면이 그려지기 전 창 배경과 아이콘에 쓰는 색. 화면 안의 색은 ui/theme/Theme.kt에 있다. -->
+    <!-- 화면이 그려지기 전 창 배경에 쓰는 색. 화면 안의 색은 ui/theme/Theme.kt에 있다. -->
+    <color name="canvas">#FFF3F4F6</color>
+    <!-- 앱 아이콘 바탕. -->
     <color name="dusk">#FF161D31</color>
 </resources>

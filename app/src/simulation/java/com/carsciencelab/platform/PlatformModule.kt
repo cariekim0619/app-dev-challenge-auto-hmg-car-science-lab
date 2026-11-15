@@ -1,12 +1,14 @@
 package com.carsciencelab.platform
 
 import android.content.Context
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
@@ -17,7 +19,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -57,39 +59,58 @@ object PlatformModule {
 /**
  * 모의 입력 패널. 차량 신호와 연결, 주차 상태를 직접 바꿔 본다.
  * 여기서 만든 변화는 실제 차량 연동 결과가 아니다.
+ *
+ * 앱 화면 아래에 따로 놓이는 띠다. 앱 화면을 덮지 않으므로, 버튼을 누르면서 화면이 어떻게
+ * 바뀌는지 그대로 볼 수 있다. 줄이 길면 옆으로 민다. 접으면 한 줄만 남는다.
  */
 @Composable
 fun PlatformDevPanel(onSupportChanged: () -> Unit, modifier: Modifier = Modifier) {
     if (!BuildConfig.DEBUG) return
     val gateway = PlatformModule.demoGateway
     val safety = PlatformModule.demoSafety
-    var open by remember { mutableStateOf(false) }
+    var open by rememberSaveable { mutableStateOf(true) }
 
-    Column(modifier = modifier.padding(16.dp), horizontalAlignment = Alignment.End) {
-        if (open) {
-            Surface(
-                shape = RoundedCornerShape(20.dp),
-                color = MaterialTheme.colorScheme.surfaceVariant,
-                modifier = Modifier.widthIn(max = 760.dp),
-            ) {
-                Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+    Surface(
+        modifier = modifier,
+        color = MaterialTheme.colorScheme.surface,
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
+    ) {
+        Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 4.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                TextButton(
+                    onClick = { open = !open },
+                    contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp),
+                ) {
                     Text(
-                        text = "모의 입력 (개발용, 실제 차량 연동이 아님)",
-                        style = MaterialTheme.typography.labelMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        text = if (open) "모의 입력 닫기" else "모의 입력",
+                        style = MaterialTheme.typography.labelSmall,
                     )
-                    DevRow("방향지시등") {
+                }
+                Text(
+                    text = "개발용, 실제 차량 연동이 아님",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(start = 4.dp),
+                )
+            }
+            if (open) {
+                Row(
+                    modifier = Modifier.horizontalScroll(rememberScrollState()),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(18.dp),
+                ) {
+                    DevGroup("방향지시등") {
                         DevButton("꺼짐") { gateway.setTurnSignal(TurnSignalCodes.OFF) }
                         DevButton("왼쪽") { gateway.setTurnSignal(TurnSignalCodes.LEFT_ACTIVE) }
                         DevButton("오른쪽") { gateway.setTurnSignal(TurnSignalCodes.RIGHT_ACTIVE) }
                         DevButton("알 수 없는 값") { gateway.sendUnknownValue() }
                         DevButton("같은 값 반복") { gateway.repeatLastValue() }
                     }
-                    DevRow("연결") {
+                    DevGroup("연결") {
                         DevButton("끊기") { gateway.setLink(false) }
                         DevButton("복구") { gateway.setLink(true) }
                     }
-                    DevRow("지원 확인") {
+                    DevGroup("지원 확인") {
                         DevButton("지원") {
                             gateway.support = SupportResult.Supported
                             onSupportChanged()
@@ -107,35 +128,28 @@ fun PlatformDevPanel(onSupportChanged: () -> Unit, modifier: Modifier = Modifier
                             onSupportChanged()
                         }
                     }
-                    DevRow("기어") {
+                    DevGroup("기어") {
                         DevButton("P") { safety.setParking(ParkingState.PARKED) }
                         DevButton("D") { safety.setParking(ParkingState.NOT_PARKED) }
                         DevButton("읽기 실패") { safety.setParking(ParkingState.UNKNOWN) }
                     }
-                    DevRow("UX 제한") {
+                    DevGroup("UX 제한") {
                         DevButton("해제") { safety.setUxRestriction(UxRestrictionState.UNRESTRICTED) }
                         DevButton("활성") { safety.setUxRestriction(UxRestrictionState.RESTRICTED) }
                     }
                 }
             }
         }
-        OutlinedButton(onClick = { open = !open }) {
-            Text(text = if (open) "모의 입력 닫기" else "모의 입력", style = MaterialTheme.typography.labelMedium)
-        }
     }
 }
 
 @Composable
-private fun DevRow(label: String, content: @Composable () -> Unit) {
-    Row(
-        modifier = Modifier.horizontalScroll(rememberScrollState()),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
+private fun DevGroup(label: String, content: @Composable () -> Unit) {
+    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
         Text(
             text = label,
             style = MaterialTheme.typography.labelMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.padding(end = 12.dp),
         )
         content()
     }
@@ -143,7 +157,13 @@ private fun DevRow(label: String, content: @Composable () -> Unit) {
 
 @Composable
 private fun DevButton(text: String, onClick: () -> Unit) {
-    TextButton(onClick = onClick) {
-        Text(text = text, style = MaterialTheme.typography.labelMedium)
+    OutlinedButton(
+        onClick = onClick,
+        modifier = Modifier.heightIn(min = 40.dp),
+        shape = RoundedCornerShape(10.dp),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
+        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 4.dp),
+    ) {
+        Text(text = text, style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurface)
     }
 }

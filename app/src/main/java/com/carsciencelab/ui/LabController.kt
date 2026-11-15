@@ -440,6 +440,7 @@ class LabController(
                     lessonId = content.id,
                     title = content.title,
                     question = content.question,
+                    model = content.model,
                     availability = availability[content.id] ?: VehicleAvailability.NOT_CHECKED,
                     vehicleCompletions = record.vehicleCompletions,
                     virtualCompletions = record.virtualCompletions,

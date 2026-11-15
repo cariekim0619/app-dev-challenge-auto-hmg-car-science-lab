@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.CarScienceLab" parent="android:Theme.Material.NoActionBar">
-        <item name="android:windowBackground">@color/dusk</item>
-        <item name="android:statusBarColor">@color/dusk</item>
-        <item name="android:navigationBarColor">@color/dusk</item>
+    <!-- Pleos Connect 시스템 화면과 같은 밝은 바탕. 상태 표시줄 아이콘은 어둡게 그린다. -->
+    <style name="Theme.CarScienceLab" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/canvas</item>
+        <item name="android:statusBarColor">@color/canvas</item>
+        <item name="android:navigationBarColor">@color/canvas</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
     </style>
 </resources>

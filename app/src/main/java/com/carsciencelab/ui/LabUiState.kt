@@ -27,6 +27,8 @@ data class LessonCardUi(
     val lessonId: String,
     val title: String,
     val question: String,
+    /** 원리 모형의 종류. 홈 카드에 어떤 그림을 넣을지 고르는 데 쓴다. */
+    val model: String,
     val availability: VehicleAvailability,
     val vehicleCompletions: Int,
     val virtualCompletions: Int,

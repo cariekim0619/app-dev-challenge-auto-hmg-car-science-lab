@@ -9,6 +9,7 @@
 
     <!-- 학습을 잠갔을 때 -->
     <string name="blocked_title">지금은 실험을 쉬어요</string>
+    <string name="blocked_checking_title">차량 상태를 확인하고 있어요</string>
     <string name="blocked_reason_not_foreground">화면이 보이지 않아 실험을 멈췄어요.</string>
     <string name="blocked_reason_ux_restricted">주행 중에는 화면 사용이 제한돼요.</string>
     <string name="blocked_reason_not_parked">기어가 P(주차)가 아니에요.</string>
@@ -16,13 +17,18 @@
     <string name="blocked_reason_ux_unknown">화면 사용 제한 상태를 확인할 수 없어요.</string>
     <string name="blocked_guide">안전한 곳에 주차(P)한 뒤 다시 열어 주세요.</string>
     <string name="blocked_guide_resume">안전한 곳에 주차(P)하면 하던 실험을 이어 할 수 있어요.</string>
+    <string name="blocked_badge_description">주차 기어 P</string>
 
     <!-- 홈 -->
     <string name="home_subtitle">부모님 차에서 궁금한 것을 직접 확인해 봐요.</string>
     <string name="home_planned_title">준비 중인 실험</string>
     <string name="planned_badge">준비 중</string>
+
+    <!-- 모드. 탐험은 어린이, 이해는 보호자가 읽는 깊이다. -->
     <string name="mode_explore">탐험</string>
     <string name="mode_understand">이해</string>
+    <string name="mode_explore_audience">어린이</string>
+    <string name="mode_understand_audience">보호자</string>
 
     <!-- 동작 -->
     <string name="action_show_records">실험 기록</string>
@@ -32,6 +38,7 @@
     <string name="action_resume">이어 하기</string>
     <string name="action_begin">시작하기</string>
     <string name="action_next">다음</string>
+    <string name="action_prev">이전</string>
     <string name="action_go_to_check">이해 확인하기</string>
     <string name="action_see_why">왜 그런지 알아보기</string>
     <string name="action_go_home">홈으로</string>
@@ -49,23 +56,40 @@
     <string name="availability_connection_failed">차량 서비스에 연결하지 못했어요. 다시 확인하거나 원리 모형으로 배울 수 있어요.</string>
     <string name="availability_check_failed">차량 상태를 확인하지 못했어요. 다시 확인하거나 원리 모형으로 배울 수 있어요.</string>
 
-    <!-- 기록 수 -->
+    <!-- 기록 수. 차량 관찰과 가상 실험을 따로 센다. -->
     <string name="count_vehicle">차에서 관찰 %1$d회</string>
     <string name="count_virtual">가상 실험 %1$d회</string>
+    <string name="record_vehicle_label">차에서 관찰</string>
+    <string name="record_virtual_label">가상 실험</string>
+    <string name="record_times">%1$d회</string>
 
     <!-- 이어 하기 -->
     <string name="resume_banner">‘%1$s’ 실험을 하다가 멈췄어요.</string>
     <string name="resume_prompt_title">실험을 잠시 멈췄어요</string>
     <string name="resume_prompt_body">이어 하기를 누르면 하던 곳에서 계속해요. 차량 상태는 다시 확인해요.</string>
 
+    <!-- 실험 단계 -->
+    <string name="step_predict">예측</string>
+    <string name="step_observe">관찰</string>
+    <string name="step_explain">원리</string>
+    <string name="step_check">확인</string>
+    <string name="stage_progress">전체 %2$d단계 중 %1$d단계, %3$s</string>
+    <string name="stage_progress_before">전체 %1$d단계. 아직 시작하기 전이에요.</string>
+    <string name="stage_progress_done">전체 %1$d단계를 모두 마쳤어요.</string>
+
     <!-- 실험 화면 -->
     <string name="guardian_heading">보호자께</string>
-    <string name="stage_progress">전체 %2$d단계 중 %1$d단계</string>
-    <string name="explain_page">%1$d / %2$d</string>
+    <string name="path_vehicle">차에서 관찰</string>
+    <string name="prediction_label">내 예측</string>
+    <string name="prediction_value">내 예측: %1$s</string>
+    <string name="explain_page">설명 %2$d개 중 %1$d번째</string>
     <string name="explain_model_hint">모형의 레버를 눌러 직접 깜빡여 볼 수 있어요.</string>
+    <string name="explain_turn_off_hint">관찰이 끝났어요. 켜 둔 장치는 이제 꺼 주세요.</string>
+    <string name="choice_tried">골랐던 답</string>
     <string name="waiting_link_lost">차량 서비스와 연결이 끊겼어요.</string>
     <string name="waiting_link_restored">연결이 돌아왔어요. 현재 상태를 다시 확인해 주세요.</string>
     <string name="waiting_state_unknown">차량 상태를 확인할 수 없어요.</string>
+    <string name="vehicle_state_label">차량 상태</string>
     <string name="vehicle_state_value">차량 상태: %1$s</string>
     <string name="vehicle_state_waiting">차량 상태를 확인하는 중이에요</string>
     <string name="vehicle_state_unknown">차량 상태를 확인할 수 없어요</string>
@@ -82,6 +106,7 @@
 
     <!-- 완료 -->
     <string name="complete_title">실험 완료!</string>
+    <string name="complete_takeaway_label">알게 된 것</string>
     <string name="complete_recorded_vehicle">차에서 직접 관찰한 실험으로 기록했어요</string>
     <string name="complete_recorded_virtual">가상 실험으로 기록했어요</string>
     <string name="complete_turn_off_reminder">실험에 쓴 장치가 아직 켜져 있어요. 꺼 주세요.</string>
