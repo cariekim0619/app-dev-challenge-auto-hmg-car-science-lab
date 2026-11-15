@@ -1,0 +1,137 @@
+{
+  "id": "turn_signal",
+  "contentVersion": 1,
+  "title": "빛으로 뜻 전달하기",
+  "question": "방향지시등은 왜 깜빡여요?",
+  "learningGoal": "빛의 점멸과 의사 전달",
+  "requiredSignals": ["turn_signal_state"],
+  "model": "turn_signal_pattern",
+  "modelLabel": "원리 모형",
+  "modelNote": "실제 깜빡임 속도와 다를 수 있어요.",
+  "virtualLabel": "가상 실험",
+  "virtualNote": "실제 차량 상태가 아니에요.",
+  "values": {
+    "OFF": { "label": "꺼짐" },
+    "LEFT_ACTIVE": { "label": "왼쪽 켜짐" },
+    "RIGHT_ACTIVE": { "label": "오른쪽 켜짐" }
+  },
+  "restingValue": "OFF",
+  "targetTransition": {
+    "afterTaskStart": true,
+    "to": "LEFT_ACTIVE"
+  },
+  "prediction": {
+    "options": [
+      { "id": "left", "value": "LEFT_ACTIVE", "label": "왼쪽" },
+      { "id": "right", "value": "RIGHT_ACTIVE", "label": "오른쪽" }
+    ]
+  },
+  "check": {
+    "optionIds": ["hurry", "direction"],
+    "correctOptionId": "direction"
+  },
+  "modes": {
+    "explore": {
+      "intro": "보호자와 함께 방향지시등을 켜 보고, 왜 깜빡이는지 알아봐요.",
+      "prediction": "왼쪽 방향지시등을 켜면 어느 쪽 화살표가 깜빡일까요?",
+      "instruction": "보호자와 함께 왼쪽 방향지시등을 켜 보세요.",
+      "waiting": "차가 알려 줄 때까지 기다리고 있어요.",
+      "alreadyAtTarget": "지금 왼쪽 방향지시등이 켜져 있어요. 먼저 꺼 볼까요?",
+      "otherValue": "오른쪽 방향지시등이 확인됐어요. 이번에는 왼쪽을 켜 볼까요?",
+      "observation": "왼쪽 방향지시등 상태가 확인됐어요.",
+      "virtualInstruction": "모형에서 왼쪽 레버를 눌러 보세요.",
+      "virtualOtherValue": "오른쪽 화살표가 깜빡여요. 이번에는 왼쪽 레버를 눌러 볼까요?",
+      "virtualObservation": "모형에서 왼쪽 화살표가 깜빡이기 시작했어요.",
+      "predictionMatched": "예측한 대로예요!",
+      "predictionMissed": "예측과 달랐어요. 왼쪽을 켜면 왼쪽 화살표가 깜빡여요.",
+      "explanation": [
+        { "text": "방향지시등은 ‘이쪽으로 갈게요’ 하고 미리 알려 주는 빛이에요." },
+        { "text": "계속 켜진 빛보다 깜빡이는 빛이 눈에 더 잘 띄어요." },
+        { "text": "그래서 다른 차와 길을 걷는 사람이 미리 알고 조심할 수 있어요." }
+      ],
+      "check": {
+        "question": "자전거를 탄 사람이 왼팔을 옆으로 쭉 뻗었어요. 무엇을 알려 주는 걸까요?",
+        "options": {
+          "direction": "왼쪽으로 가려고 해요",
+          "hurry": "빨리 가고 싶어요"
+        },
+        "hint": "방향지시등이 어떤 뜻을 전했는지 떠올려 보세요.",
+        "explanation": "빛 대신 팔로 ‘이쪽으로 갈게요’ 하고 알려 주는 거예요."
+      },
+      "completion": "방향지시등은 빛으로 방향을 알려 주는 약속이에요."
+    },
+    "understand": {
+      "intro": "보호자가 방향지시등을 조작하고, 조작과 표시 상태가 어떻게 이어지는지 함께 살펴봅니다.",
+      "prediction": "왼쪽으로 조작하면 어느 쪽 표시 상태가 바뀔까요?",
+      "instruction": "왼쪽 방향지시등을 켜 주세요.",
+      "waiting": "차량이 표시 상태를 알려 주기를 기다리고 있습니다.",
+      "alreadyAtTarget": "왼쪽 방향지시등이 이미 켜져 있습니다. 먼저 꺼 주세요.",
+      "otherValue": "오른쪽 방향지시등이 확인됐습니다. 왼쪽을 켜 주세요.",
+      "observation": "왼쪽 방향지시등 상태가 확인됐습니다.",
+      "virtualInstruction": "모형에서 왼쪽 레버를 눌러 주세요.",
+      "virtualOtherValue": "모형의 오른쪽 신호가 켜졌습니다. 왼쪽 레버를 눌러 주세요.",
+      "virtualObservation": "모형에서 왼쪽 신호가 깜빡이기 시작했습니다.",
+      "predictionMatched": "예측과 같았습니다.",
+      "predictionMissed": "예측과 달랐습니다. 왼쪽으로 조작하면 왼쪽 표시 상태가 바뀝니다.",
+      "explanation": [
+        {
+          "heading": "왜 이런가",
+          "text": "방향지시등은 진행 방향을 바꾸려는 뜻을 주변에 미리 알리는 신호입니다. 일정한 간격으로 켜졌다 꺼지는 빛은 계속 켜진 빛보다 눈에 띄기 쉽고, 미등이나 제동등처럼 계속 켜지는 등화와도 구별됩니다."
+        },
+        {
+          "heading": "언제 쓰는가",
+          "text": "좌회전·우회전, 유턴, 차로 변경처럼 진행 방향을 바꿀 때 미리 켜고 그 동작이 끝날 때까지 유지합니다. 도로교통법 시행령은 일반도로에서 30미터, 고속도로에서 100미터 이상 앞에서 신호를 시작하도록 정하고 있습니다."
+        },
+        {
+          "heading": "더 알아보기",
+          "text": "이 앱은 차량이 알려 주는 표시 상태만 확인하며, 누가 조작했는지는 알 수 없습니다. 화면의 깜빡임 모형은 원리를 보여 주기 위한 것으로 실제 점멸 속도를 측정한 값이 아닙니다. 국내 안전기준은 방향지시등이 1분에 60~120회 깜빡이는 구조여야 한다고 정하고 있습니다."
+        }
+      ],
+      "check": {
+        "question": "자전거 운전자가 왼팔을 수평으로 뻗었습니다. 어떤 신호일까요?",
+        "options": {
+          "direction": "왼쪽으로 방향을 바꾸겠다는 신호",
+          "hurry": "속도를 높이겠다는 신호"
+        },
+        "hint": "방향지시등과 같은 역할을 하는 수신호입니다.",
+        "explanation": "등화가 없어도 같은 뜻을 전할 수 있습니다. 도로교통법은 방향지시기뿐 아니라 손으로 하는 신호도 인정합니다."
+      },
+      "completion": "깜빡이는 빛은 진행 방향을 미리 알리는 신호입니다."
+    }
+  },
+  "guardian": {
+    "tips": [
+      "차량 전원을 켜고 안전하게 주차(P)한 상태에서 진행해 주세요.",
+      "장치는 보호자가 조작하고, 아이는 예측하고 관찰해요.",
+      "실험이 끝나면 방향지시등을 꺼 주세요."
+    ]
+  },
+  "sourceRefs": [
+    {
+      "id": "road_traffic_act_38",
+      "title": "도로교통법 제38조(차의 신호), 같은 법 시행령 별표 2(신호의 시기 및 방법)",
+      "supports": "신호를 해야 하는 경우, 동작이 끝날 때까지 유지, 30미터·100미터 기준, 손으로 하는 신호",
+      "status": "needs_review",
+      "url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=161683407"
+    },
+    {
+      "id": "vehicle_rule_annex_6_17",
+      "title": "자동차 및 자동차부품의 성능과 기준에 관한 규칙 별표 6의17(방향지시등의 설치 및 광도기준)",
+      "supports": "1분간 90±30회 점멸하는 구조",
+      "status": "needs_review",
+      "url": "https://www.law.go.kr/LSW//flDownload.do?flSeq=120810049"
+    },
+    {
+      "id": "flashing_light_conspicuity",
+      "title": "점멸하는 빛의 주목성에 관한 자료(출처 확보 필요)",
+      "supports": "깜빡이는 빛이 계속 켜진 빛보다 눈에 띄기 쉽다는 설명",
+      "status": "needs_review"
+    },
+    {
+      "id": "owner_manual_turn_signal",
+      "title": "지원 차종의 공식 사용설명서 중 방향지시등 항목(차종 확정 후 기재)",
+      "supports": "조작 방법과 작동 조건",
+      "status": "needs_review"
+    }
+  ]
+}

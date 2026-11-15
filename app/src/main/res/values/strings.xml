@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">자동차 과학실</string>
+
+    <!-- 시작과 오류 -->
+    <string name="loading_title">실험실을 준비하고 있어요</string>
+    <string name="content_error_title">실험 내용을 불러오지 못했어요</string>
+    <string name="content_error_body">앱에 포함된 실험 내용에 문제가 있어요. (%1$s)</string>
+
+    <!-- 학습을 잠갔을 때 -->
+    <string name="blocked_title">지금은 실험을 쉬어요</string>
+    <string name="blocked_reason_not_foreground">화면이 보이지 않아 실험을 멈췄어요.</string>
+    <string name="blocked_reason_ux_restricted">주행 중에는 화면 사용이 제한돼요.</string>
+    <string name="blocked_reason_not_parked">기어가 P(주차)가 아니에요.</string>
+    <string name="blocked_reason_parking_unknown">주차 상태를 확인할 수 없어요.</string>
+    <string name="blocked_reason_ux_unknown">화면 사용 제한 상태를 확인할 수 없어요.</string>
+    <string name="blocked_guide">안전한 곳에 주차(P)한 뒤 다시 열어 주세요.</string>
+    <string name="blocked_guide_resume">안전한 곳에 주차(P)하면 하던 실험을 이어 할 수 있어요.</string>
+
+    <!-- 홈 -->
+    <string name="home_subtitle">부모님 차에서 궁금한 것을 직접 확인해 봐요.</string>
+    <string name="home_planned_title">준비 중인 실험</string>
+    <string name="planned_badge">준비 중</string>
+    <string name="mode_explore">탐험</string>
+    <string name="mode_understand">이해</string>
+
+    <!-- 동작 -->
+    <string name="action_show_records">실험 기록</string>
+    <string name="action_observe_in_vehicle">차에서 관찰하기</string>
+    <string name="action_learn_with_model">원리 모형으로 배우기</string>
+    <string name="action_recheck">다시 확인</string>
+    <string name="action_resume">이어 하기</string>
+    <string name="action_begin">시작하기</string>
+    <string name="action_next">다음</string>
+    <string name="action_go_to_check">이해 확인하기</string>
+    <string name="action_see_why">왜 그런지 알아보기</string>
+    <string name="action_go_home">홈으로</string>
+    <string name="action_restart">다시 해보기</string>
+    <string name="action_cancel">취소</string>
+    <string name="action_clear_records">기록 지우기</string>
+    <string name="action_clear_records_confirm">지우기</string>
+
+    <!-- 차량에서 관찰할 수 있는지 -->
+    <string name="availability_available">이 차에서 관찰할 수 있어요</string>
+    <string name="availability_not_checked">차량 확인을 기다리고 있어요.</string>
+    <string name="availability_checking">이 차에서 관찰할 수 있는지 확인하고 있어요.</string>
+    <string name="availability_unsupported">이 차는 실험에 필요한 상태를 앱에 알려 주지 않아요. 원리 모형으로 배울 수 있어요.</string>
+    <string name="availability_permission_denied">앱에 차량 상태를 읽을 권한이 없어요. 원리 모형으로 배울 수 있어요.</string>
+    <string name="availability_connection_failed">차량 서비스에 연결하지 못했어요. 다시 확인하거나 원리 모형으로 배울 수 있어요.</string>
+    <string name="availability_check_failed">차량 상태를 확인하지 못했어요. 다시 확인하거나 원리 모형으로 배울 수 있어요.</string>
+
+    <!-- 기록 수 -->
+    <string name="count_vehicle">차에서 관찰 %1$d회</string>
+    <string name="count_virtual">가상 실험 %1$d회</string>
+
+    <!-- 이어 하기 -->
+    <string name="resume_banner">‘%1$s’ 실험을 하다가 멈췄어요.</string>
+    <string name="resume_prompt_title">실험을 잠시 멈췄어요</string>
+    <string name="resume_prompt_body">이어 하기를 누르면 하던 곳에서 계속해요. 차량 상태는 다시 확인해요.</string>
+
+    <!-- 실험 화면 -->
+    <string name="guardian_heading">보호자께</string>
+    <string name="stage_progress">전체 %2$d단계 중 %1$d단계</string>
+    <string name="explain_page">%1$d / %2$d</string>
+    <string name="explain_model_hint">모형의 레버를 눌러 직접 깜빡여 볼 수 있어요.</string>
+    <string name="waiting_link_lost">차량 서비스와 연결이 끊겼어요.</string>
+    <string name="waiting_link_restored">연결이 돌아왔어요. 현재 상태를 다시 확인해 주세요.</string>
+    <string name="waiting_state_unknown">차량 상태를 확인할 수 없어요.</string>
+    <string name="vehicle_state_value">차량 상태: %1$s</string>
+    <string name="vehicle_state_waiting">차량 상태를 확인하는 중이에요</string>
+    <string name="vehicle_state_unknown">차량 상태를 확인할 수 없어요</string>
+
+    <!-- 원리 모형 -->
+    <string name="model_description_left">원리 모형. 왼쪽 방향지시등이 깜빡이고 있어요.</string>
+    <string name="model_description_right">원리 모형. 오른쪽 방향지시등이 깜빡이고 있어요.</string>
+    <string name="model_description_off">원리 모형. 방향지시등이 꺼져 있어요.</string>
+    <string name="model_pattern_caption">켜짐과 꺼짐이 같은 간격으로 반복돼요.</string>
+    <string name="model_unavailable">이 실험의 모형을 준비하고 있어요.</string>
+    <string name="lever_left">왼쪽</string>
+    <string name="lever_off">끄기</string>
+    <string name="lever_right">오른쪽</string>
+
+    <!-- 완료 -->
+    <string name="complete_title">실험 완료!</string>
+    <string name="complete_recorded_vehicle">차에서 직접 관찰한 실험으로 기록했어요</string>
+    <string name="complete_recorded_virtual">가상 실험으로 기록했어요</string>
+    <string name="complete_turn_off_reminder">실험에 쓴 장치가 아직 켜져 있어요. 꺼 주세요.</string>
+
+    <!-- 실험 기록 -->
+    <string name="records_title">실험 기록</string>
+    <string name="records_empty">아직 완료한 기록이 없어요.</string>
+    <string name="records_last_completed">마지막 완료: %1$s</string>
+    <string name="records_clear_confirm">완료 기록과 이어 하기 지점을 모두 지울까요?</string>
+
+    <!-- 실행 환경 -->
+    <string name="env_title">실행 환경</string>
+    <string name="env_vehicle_source">차량 상태 출처</string>
+    <string name="env_vehicle_source_pleos">Pleos Vehicle SDK</string>
+    <string name="env_vehicle_source_simulation">모의 입력(개발용)</string>
+    <string name="env_sdk_version">Vehicle SDK 버전</string>
+    <string name="env_service_version">Vehicle Service 버전</string>
+    <string name="env_value_unknown">확인할 수 없음</string>
+    <string name="env_connection">차량 서비스 연결</string>
+    <string name="env_connection_idle">요청 전</string>
+    <string name="env_connection_connecting">연결 중</string>
+    <string name="env_connection_connected">응답 확인</string>
+    <string name="env_connection_failed">실패</string>
+    <string name="env_dropped">버린 관찰 수</string>
+</resources>

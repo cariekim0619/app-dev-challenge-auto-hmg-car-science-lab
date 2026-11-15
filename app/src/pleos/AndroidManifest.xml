@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 방향지시등 상태 조회(Vehicle SDK TurnSignal). 조회 권한만 선언하고 제어 권한은 쓰지 않는다. -->
+    <uses-permission android:name="pleos.car.permission.CAR_LIGHTS" />
+
+    <!-- 주차(P) 확인에 쓰는 AAOS GEAR_SELECTION 프로퍼티 읽기. -->
+    <uses-permission android:name="android.car.permission.CAR_POWERTRAIN" />
+
+    <!-- 실험 기록 화면의 환경 정보에 Vehicle Service 버전을 표시하기 위한 조회. -->
+    <queries>
+        <package android:name="ai.pleos.playground.service.vehicle" />
+    </queries>
+
+    <application>
+        <!-- CarUxRestrictions와 CarPropertyManager를 쓰기 위한 차량 라이브러리. -->
+        <uses-library
+            android:name="android.car"
+            android:required="false" />
+    </application>
+
+</manifest>

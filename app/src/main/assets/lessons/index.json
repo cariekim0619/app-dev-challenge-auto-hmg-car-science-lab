@@ -1,0 +1,21 @@
+{
+  "lessons": [
+    {
+      "id": "turn_signal",
+      "status": "available",
+      "file": "turn_signal.json"
+    },
+    {
+      "id": "wiper",
+      "status": "planned",
+      "title": "회전이 왕복으로 바뀌는 과정",
+      "question": "와이퍼는 어떻게 왔다 갔다 해요?"
+    },
+    {
+      "id": "recirculation",
+      "status": "planned",
+      "title": "공기는 어디에서 올까",
+      "question": "에어컨 바람은 어디에서 나와요?"
+    }
+  ]
+}
